@@ -26,7 +26,7 @@ function shrinkNumber(num) {
 }
 
 
-//My attempt to convert numbers to exponential form. Usually creates shorter outputs than built in designs.
+//My attempt to convert numbers to exponential form. Often smaller than built in designs.
 function toShorterVersion(num) {
 	
 	if (Object.is(0, num)) {return "0"}
@@ -76,7 +76,7 @@ function toShorterVersion(num) {
 }
 
 
-//A JSON.stringify polyfill modified to insert shrunk numbers.
+//A JSON.stringify polyfill.
 
 var toString = Object.prototype.toString;
 var isArray = Array.isArray || function(a) {
@@ -95,6 +95,8 @@ var escFunc = function(m) {
 	return escMap[m] || '\\u' + (m.charCodeAt(0) + 0x10000).toString(16).substr(1);
 };
 var escRE = /[\\"\u0000-\u001F\u2028\u2029]/g;
+
+
 
 
 function stringify(value) {
@@ -132,7 +134,7 @@ function stringify(value) {
 
 
 function verifiedStringify(value) {
-	//Quite a bit slower, this function simply makes sure the shrunk object works correctly. (it is possible some technically correct objects
+	//Quite a bit slower, this function simply makes sure the shrunk object wors correctly. (it is possible some technically correct objects
 	//will not be shrunk because the underlying platform moves around the order of object keys, etc.)
 	let shrunk = stringify(value)
 	let native = JSON.stringify(value)
@@ -143,8 +145,13 @@ function verifiedStringify(value) {
 	return shrunk
 }
 
+function shrinkJSON(str) {return stringify(JSON.parse(str))}
+function verifiedShrinkJSON(str) {return verifiedStringify(JSON.parse(str))}
+
 module.exports = {
 	stringify,
 	verifiedStringify,
+	shrinkJSON,
+	verifiedShrinkJSON,
 	shrinkNumber
 }
