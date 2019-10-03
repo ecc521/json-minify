@@ -1,5 +1,5 @@
 {
-  "name": "@ecc521/json-shrinker",
+  "name": "json-shrinker",
   "version": "1.0.2",
   "description": "Minify JSON by removing whitespace and using scientific notation for numbers.",
   "license": "UNLICENSED",
