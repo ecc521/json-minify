@@ -1,8 +1,8 @@
 {
   "name": "@ecc521/json-shrinker",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "description": "Minify JSON by removing whitespace and using scientific notation for numbers.",
-  "license": "Unlicense",
+  "license": "UNLICENSED",
   "repository": "ecc521/json-shrinker",
   "main": "minify.js",
   "keywords": [
