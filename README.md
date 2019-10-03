@@ -1,4 +1,4 @@
-# json-minify
+# json-shrinker
 
 ### Minify JSON by Removing Whitespace and by using Scientific Notation for Numbers
 
