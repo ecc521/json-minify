@@ -134,12 +134,13 @@ function stringify(value) {
 
 
 function verifiedStringify(value) {
-	//Quite a bit slower, this function simply makes sure the shrunk object wors correctly. (it is possible some technically correct objects
+	//Quite a bit slower, this function simply makes sure the shrunk object works correctly, 
+	//and also makes sure that it is smaller. (it is possible some technically correct objects
 	//will not be shrunk because the underlying platform moves around the order of object keys, etc.)
 	let shrunk = stringify(value)
 	let native = JSON.stringify(value)
 	
-	if (JSON.stringify(JSON.parse(shrunk)) !== native) {
+	if (JSON.stringify(JSON.parse(shrunk)) !== native || shrunk.length > native.length) {
 		return native
 	}
 	return shrunk
